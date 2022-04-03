@@ -17,6 +17,7 @@ void records::updateLoginData()
     {
         data_file << itr.first <<' '<< itr.second << endl;
     }
+    data_file.close();
 }
 void records::registration()
 {
@@ -71,7 +72,7 @@ enter_name_login:
         cout << "User name not found\n";
     choice_login:
         cout << "Enter 1 to try again or enter 2 to exit\n";
-        cout << "Enter your choice :";
+        cout << "Enter your choice : ";
         cin >> choice;
         switch (choice)
         {
@@ -108,7 +109,6 @@ void records::exit(){
     cout<<"Enter your choice : ";
     cin >> choice;
     if(choice==1) {
-        cout<<"updatelogindata\n";
          updateLoginData();
     }
 }
