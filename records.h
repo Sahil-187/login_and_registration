@@ -10,5 +10,6 @@ records();
 void updateLoginData ();
 void registration();
 void login();
+void exit();
 };
 #endif

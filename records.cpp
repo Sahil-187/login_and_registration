@@ -8,12 +8,14 @@ records::records()
     {
         login_data[username] = password;
     }
+    data_file.close();
 }
 void records::updateLoginData()
-{
+{ 
+    data_file.open("login_data.txt");
     for (auto &itr : login_data)
     {
-        data_file << itr.first << itr.second << endl;
+        data_file << itr.first <<' '<< itr.second << endl;
     }
 }
 void records::registration()
@@ -55,6 +57,7 @@ void records::registration()
     cout << "Enter your password\n";
     cin >> password;
     login_data[name] = password;
+    cout<<"Registration Successfull \nleaving page ... \n";
 }
 void records::login()
 {
@@ -98,4 +101,14 @@ enter_name_login:
         goto enter_name_login ;
     }
     cout<<"login successfull ... \n";
+}
+void records::exit(){
+    int choice;
+    cout<<"Press 1 to exit and save changes , any other input to exit without saving changes\n";
+    cout<<"Enter your choice : ";
+    cin >> choice;
+    if(choice==1) {
+        cout<<"updatelogindata\n";
+         updateLoginData();
+    }
 }
